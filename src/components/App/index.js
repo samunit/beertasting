@@ -5,6 +5,7 @@ import Navigation from '../Navigation';
 import LandingPage from "../Landing";
 import SignInPage from '../SignIn';
 import SignOutPage from '../SignOut';
+import SignUpPage from '../SignUp'
 import HomePage from '../Home';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
@@ -19,8 +20,8 @@ const App = () => (
       <Navigation />
       
       <hr />
-
       <Route exact path={ROUTES.LANDING} component={LandingPage} />
+      <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
       <Route path={ROUTES.SIGN_IN} component={SignInPage} />
       <Route path={ROUTES.SIGN_OUT} component={SignOutPage} />
       <Route path={ROUTES.HOME} component={HomePage} />
