@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import { withFirebase } from '../Firebase';
+import { withFirebase } from "../Firebase";
 import { compose } from "recompose";
-import * as ROUTES from '../../constants/routes';
+import * as ROUTES from "../../constants/routes";
 
 const SignUpPage = () => (
   <div>
@@ -12,12 +12,12 @@ const SignUpPage = () => (
 );
 
 const INITAL_STATE = {
-  username: '',
-  email: '',
-  passwordOne: '',
-  passwordTwo: '',
-  error: null
-}
+  username: "",
+  email: "",
+  passwordOne: "",
+  passwordTwo: "",
+  error: null,
+};
 
 class SignUpFormBase extends Component {
   constructor(props) {
@@ -25,37 +25,32 @@ class SignUpFormBase extends Component {
     this.state = { ...INITAL_STATE };
   }
 
-  onSubmit = event => {
+  onSubmit = (event) => {
     const { username, email, passwordOne } = this.state;
     this.props.firebase
       .doCreateUserWithPasswordAndEmail(email, passwordOne)
-      .then(authUser => {
-        this.setState({...INITAL_STATE});
+      .then((authUser) => {
+        this.setState({ ...INITAL_STATE });
         this.props.history.push(ROUTES.HOME);
       })
-      .catch(error => {
+      .catch((error) => {
         this.setState({ error });
       });
     event.preventDefault();
-  }
+  };
 
-  onChange = event => {
+  onChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
-  }
+  };
 
   render() {
-    const {
-      username,
-      email,
-      passwordOne,
-      passwordTwo,
-      error
-    } = this.state;
+    const { username, email, passwordOne, passwordTwo, error } = this.state;
 
-    const isInvalid = passwordOne !== passwordTwo ||
-      passwordOne === '' ||
-      email === '' ||
-      username === '';
+    const isInvalid =
+      passwordOne !== passwordTwo ||
+      passwordOne === "" ||
+      email === "" ||
+      username === "";
 
     return (
       <form onSubmit={this.onSubmit}>
@@ -87,7 +82,9 @@ class SignUpFormBase extends Component {
           type="password"
           placeholder="Confirm Password"
         />
-        <button disabled={isInvalid} type="submit">Sign Up</button>
+        <button disabled={isInvalid} type="submit">
+          Sign Up
+        </button>
 
         {error && <p>{error.message}</p>}
       </form>
@@ -101,10 +98,7 @@ const SignUpLink = () => (
   </p>
 );
 
-const SignUpForm = compose(
-  withRouter,
-  withFirebase,
-)(SignUpFormBase);
+const SignUpForm = compose(withRouter, withFirebase)(SignUpFormBase);
 
 export default SignUpPage;
 export { SignUpLink, SignUpForm };
