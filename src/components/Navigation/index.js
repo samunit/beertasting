@@ -5,9 +5,11 @@ import * as ROUTES from "../../constants/routes";
 import { AuthUserContext } from "../Session";
 
 const Navigation = () => (
-  <AuthUserContext.Consumer>
-    <div>{authUser ? <NavigationOnAuth /> : <NavigationOnNoAuth />}</div>
-  </AuthUserContext.Consumer>
+  <div>
+    <AuthUserContext.Consumer>
+      {(authUser) => (authUser ? <NavigationOnAuth /> : <NavigationOnNoAuth />)}
+    </AuthUserContext.Consumer>
+  </div>
 );
 
 const NavigationOnAuth = () => (

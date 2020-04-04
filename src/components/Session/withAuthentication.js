@@ -26,9 +26,11 @@ const withAuthentication = (Component) => {
       this.listener();
     }
     render() {
-      <AuthUserContext.Provider value={this.state.authUser}>
-        return <Component {...this.props} />;
-      </AuthUserContext.Provider>;
+      return (
+        <AuthUserContext.Provider value={this.state.authUser}>
+          <Component {...this.props} />;
+        </AuthUserContext.Provider>
+      );
     }
   }
   return withFirebase(WithAuthentication);
