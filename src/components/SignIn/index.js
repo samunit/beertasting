@@ -1,17 +1,27 @@
 import React, { Component } from "react";
+
 import { withRouter } from "react-router-dom";
 import { compose } from "recompose";
 import { SignUpLink } from "../SignUp";
 import { withFirebase } from "../Firebase";
-import * as ROUTES from "../../constants/routes";
 import { PasswordForgetLink } from "../PasswordForget";
+
+// SASS
+import "./signin.scss";
+
+// Material UI
+import { Button, TextField } from "@material-ui/core";
+
+import * as ROUTES from "../../constants/routes";
 
 const SignInPage = () => (
   <div>
-    <h1>Sign In</h1>
-    <SignInForm />
-    <PasswordForgetLink />
-    <SignUpLink />
+    <div className="wrapper">
+      <h1>Sign In</h1>
+      <SignInForm />
+      <PasswordForgetLink />
+      <SignUpLink />
+    </div>
   </div>
 );
 
@@ -49,29 +59,33 @@ class SignInFormBase extends Component {
     const isInvalid = password === "" || email === "";
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          class="email-input"
-          type="text"
-          placeholder="Email"
-        />
-        <input
-          name="password"
-          value={password}
-          onChange={this.onChange}
-          class="password-input"
-          type="password"
-          placeholder="Password"
-        />
-        <button id="btnSignIn" disabled={isInvalid} type="submit">
-          Sign In
-        </button>
+      <div>
+        <form onSubmit={this.onSubmit}>
+          <TextField
+            id="standard-basic"
+            name="email"
+            value={email}
+            onChange={this.onChange}
+            class="email-input"
+            type="text"
+            placeholder="Email"
+          />
+          <TextField
+            id="standard-basic"
+            name="password"
+            value={password}
+            onChange={this.onChange}
+            class="password-input"
+            type="password"
+            placeholder="Password"
+          />
+          <Button color="primary" disabled={isInvalid} type="submit">
+            Sign In
+          </Button>
 
-        {error && <p id="errorMessage">{error.message}</p>}
-      </form>
+          {error && <p id="errorMessage">{error.message}</p>}
+        </form>
+      </div>
     );
   }
 }
