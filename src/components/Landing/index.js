@@ -1,7 +1,9 @@
 import React from "react";
-const App = () => (
+
+const LandingPage = () => (
   <div>
-    <h1>Landing</h1>
+    <h1>Beer Tasting</h1>
+    <p>Welcome to the beer tasting page</p>
   </div>
 );
-export default App;
+export default LandingPage;

@@ -9,15 +9,7 @@ class SignOutBase extends Component {
     super(props);
   }
   onSignout = () => {
-    this.props.firebase
-      .doSignOut()
-      .then(() => {
-        this.props.history.push(ROUTES.SIGN_IN);
-      })
-      .catch((err) => {
-        console.log("Could not logout");
-      });
-    this.props.history.push(ROUTES.SIGN_IN);
+    this.props.firebase.doSignOut();
   };
 
   render() {
