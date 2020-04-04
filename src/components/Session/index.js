@@ -1,7 +1,3 @@
-import React from "react";
-const App = () => (
-  <div>
-    <h1>App</h1>
-  </div>
-);
-export default App;
+import AuthUserContext from "./context";
+import withAuthentication from "./withAuthentication";
+export { AuthUserContext, withAuthentication };
