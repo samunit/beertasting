@@ -4,11 +4,13 @@ import { compose } from "recompose";
 import { SignUpLink } from "../SignUp";
 import { withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
+import { PasswordForgetLink } from "../PasswordForget";
 
 const SignInPage = () => (
   <div>
     <h1>Sign In</h1>
     <SignInForm />
+    <PasswordForgetLink />
     <SignUpLink />
   </div>
 );
@@ -49,18 +51,18 @@ class SignInFormBase extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <input
-          id="email"
           name="email"
           value={email}
           onChange={this.onChange}
+          class="email-input"
           type="text"
           placeholder="Email"
         />
         <input
-          id="password"
           name="password"
           value={password}
           onChange={this.onChange}
+          class="password-input"
           type="password"
           placeholder="Password"
         />

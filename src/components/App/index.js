@@ -14,6 +14,7 @@ import ListPage from "../list";
 
 import * as ROUTES from "../../constants/routes";
 import { withAuthentication } from "../Session";
+import PasswordForgetPage from "../PasswordForget";
 
 const App = () => (
   <Router>
@@ -30,6 +31,7 @@ const App = () => (
       <Route path={ROUTES.ADMIN} component={AdminPage} />
       <Route path={ROUTES.LIST} component={ListPage} />
       <Route path={ROUTES.FORM} component={FormPage} />
+      <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
     </div>
   </Router>
 );
