@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import globalStyles from "../../styles/global.css";
 
 import Navigation from "../Navigation";
 import LandingPage from "../Landing";
@@ -18,7 +19,7 @@ import PasswordForgetPage from "../PasswordForget";
 
 const App = () => (
   <Router>
-    <div>
+    <div className={{ globalStyles }}>
       <Navigation />
 
       <hr />

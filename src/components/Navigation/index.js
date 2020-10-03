@@ -16,10 +16,9 @@ const NavBar = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="title" color="inherit">
+        <Typography class="header-title" variant="title" color="inherit">
           Beer Tasting 2020
         </Typography>
-        <Button color="inherit">Login</Button>
       </Toolbar>
     </AppBar>
   );
@@ -36,37 +35,35 @@ const Navigation = () => (
 
 const NavigationOnAuth = () => (
   <div>
-    <ButtonGroup
-      color="primary"
-      variant="contained"
-      aria-label="contained primary button group"
-    >
-      <Button component={Link} to={ROUTES.LANDING}>
-        Landing
-      </Button>
-      <Button component={Link} to={ROUTES.HOME}>
-        Home
-      </Button>
-      <Button component={Link} to={ROUTES.ACCOUNT}>
-        Account
-      </Button>
-      <Button component={SignOutButton}>Sign Out</Button>
-    </ButtonGroup>
+    <ul>
+      <li>
+        <Link to={ROUTES.LANDING}>Landing</Link>
+      </li>
+      <li>
+        <Link to={ROUTES.HOME}>Home</Link>
+      </li>
+      <li>
+        <Link to={ROUTES.ACCOUNT}>Account</Link>
+      </li>
+      <li>
+        <SignOutButton />
+      </li>
+    </ul>
   </div>
 );
 const NavigationOnNoAuth = () => (
   <div>
-    <ButtonGroup color="primary" aria-label="outlined primary button group">
-      <Button component={Link} to={ROUTES.LANDING}>
-        Landing
-      </Button>
-      <Button component={Link} to={ROUTES.SIGN_UP}>
-        Sign Up
-      </Button>
-      <Button component={Link} to={ROUTES.SIGN_IN}>
-        Sign In
-      </Button>
-    </ButtonGroup>
+    <ul>
+      <li>
+        <Link to={ROUTES.LANDING}>Landing</Link>
+      </li>
+      <li>
+        <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+      </li>
+      <li>
+        <Link to={ROUTES.SIGN_IN}>Sign In</Link>
+      </li>
+    </ul>
   </div>
 );
 
