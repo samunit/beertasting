@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { withFirebase } from "../Firebase";
-import { withRouter } from "react-router-dom";
-import { compose } from "recompose";
-import * as ROUTES from "../../constants/routes";
+import React, { Component } from 'react';
+import { withFirebase } from '../Firebase';
+import { withRouter } from 'react-router-dom';
+import { compose } from 'recompose';
+import * as ROUTES from '../../constants/routes';
 
 class SignOutBase extends Component {
   constructor(props) {

@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { withFirebase } from "../Firebase";
-import { PasswordForgetForm } from "../PasswordForget";
+import React, { Component } from 'react';
+import { withFirebase } from '../Firebase';
+import { PasswordForgetForm } from '../PasswordForget';
 
 const INITIAL_STATE = {
-  passwordOne: "",
-  passwordTwo: "",
-  error: "",
+  passwordOne: '',
+  passwordTwo: '',
+  error: '',
 };
 
 class PasswordChangeForm extends Component {
@@ -33,7 +33,7 @@ class PasswordChangeForm extends Component {
 
   render() {
     const { passwordOne, passwordTwo, error } = this.state;
-    const isInvalid = passwordOne !== passwordTwo && passwordOne === "";
+    const isInvalid = passwordOne !== passwordTwo && passwordOne === '';
 
     return (
       <form onSubmit={this.onSubmit}>

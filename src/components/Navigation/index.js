@@ -1,28 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import SignOutButton from "../SignOut";
-import * as ROUTES from "../../constants/routes";
-import { AuthUserContext } from "../Session";
-
-import {
-  Button,
-  ButtonGroup,
-  AppBar,
-  Toolbar,
-  Typography,
-} from "@material-ui/core";
-
-const NavBar = () => {
-  return (
-    <AppBar position="static">
-      <Toolbar>
-        <Typography class="header-title" variant="title" color="inherit">
-          Beer Tasting 2020
-        </Typography>
-      </Toolbar>
-    </AppBar>
-  );
-};
+import React from 'react';
+import { Link } from 'react-router-dom';
+import SignOutButton from '../SignOut';
+import * as ROUTES from '../../constants/routes';
+import { AuthUserContext } from '../Session';
 
 const Navigation = () => (
   <div>
@@ -32,6 +12,14 @@ const Navigation = () => (
     </AuthUserContext.Consumer>
   </div>
 );
+
+const NavBar = () => {
+  return (
+    <div>
+      <h1>Beer Tasting 2020</h1>
+    </div>
+  );
+};
 
 const NavigationOnAuth = () => (
   <div>

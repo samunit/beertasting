@@ -1,32 +1,32 @@
 /// <reference types="cypress" />
 
-context("Login", () => {
+context('Login', () => {
   beforeEach(() => {
-    cy.visit("localhost:3000/signin");
+    cy.visit('localhost:3000/signin');
   });
 
-  it("enter email into input field", () => {
+  it('enter email into input field', () => {
     // https://on.cypress.io/type
-    cy.get(".email-input")
-      .type("fake@email.com")
-      .should("have.value", "fake@email.com")
+    cy.get('.email-input')
+      .type('fake@email.com')
+      .should('have.value', 'fake@email.com')
 
       // .type() with special character sequences
-      .type("{leftarrow}{rightarrow}{uparrow}{downarrow}")
-      .type("{del}{selectall}{backspace}")
+      .type('{leftarrow}{rightarrow}{uparrow}{downarrow}')
+      .type('{del}{selectall}{backspace}')
 
       // .type() with key modifiers
-      .type("{alt}{option}") //these are equivalent
-      .type("{ctrl}{control}") //these are equivalent
-      .type("{meta}{command}{cmd}") //these are equivalent
-      .type("{shift}")
+      .type('{alt}{option}') //these are equivalent
+      .type('{ctrl}{control}') //these are equivalent
+      .type('{meta}{command}{cmd}') //these are equivalent
+      .type('{shift}')
 
       // Delay each keypress by 0.1 sec
-      .type("slow.typing@email.com", { delay: 100 })
-      .should("have.value", "slow.typing@email.com");
+      .type('slow.typing@email.com', { delay: 100 })
+      .should('have.value', 'slow.typing@email.com');
   });
 
-  it("should enter password into email field", () => {
-    cy.get(".password-input").type("fakepassword").should("have.text", "");
+  it('should enter password into email field', () => {
+    cy.get('.password-input').type('fakepassword').should('have.text', '');
   });
 });
